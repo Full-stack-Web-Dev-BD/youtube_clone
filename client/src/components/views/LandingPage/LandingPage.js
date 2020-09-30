@@ -26,11 +26,12 @@ function LandingPage() {
       <Col key={video._id} lg={6} md={8} xs={24}>
         <div style={{ position: "relative" }}>
           <a href={`/video/${video._id}`}>
-            <img
+            {/* <img
               style={{ width: "100%" }}
               alt="thumbnail"
               src={`http://localhost:5000/${video.thumbnail}`}
-            />
+            /> */}
+            <img style={{width:'100%'}} src={require('./thamb.png')} />
             <div
               className=" duration"
               style={{

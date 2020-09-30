@@ -60,10 +60,12 @@ function UploadVideoPage(props) {
       title === "" ||
       Description === "" ||
       Categories === "" ||
-      FilePath === "" ||
-      Duration === "" ||
-      Thumbnail === ""
+      FilePath === ""
+      // FilePath === "" ||
+      // Duration === "" ||
+      // Thumbnail === ""
     ) {
+      console.log(title,Description,Categories,FilePath,Duration,Thumbnail)
       return alert("Please first fill all the fields");
     }
 
@@ -74,8 +76,6 @@ function UploadVideoPage(props) {
       privacy: privacy,
       filePath: FilePath,
       category: Categories,
-      duration: Duration,
-      thumbnail: Thumbnail,
     };
 
     axios.post("/api/video/uploadVideo", variables).then((response) => {
@@ -106,14 +106,14 @@ function UploadVideoPage(props) {
 
         //gerenate thumbnail with this filepath !
 
-        axios.post("/api/video/thumbnail", variable).then((response) => {
-          if (response.data.success) {
-            setDuration(response.data.fileDuration);
-            setThumbnail(response.data.thumbsFilePath);
-          } else {
-            alert("Failed to make the thumbnails");
-          }
-        });
+        // axios.post("/api/video/thumbnail", variable).then((response) => {
+        //   if (response.data.success) {
+        //     setDuration(response.data.fileDuration);
+        //     setThumbnail(response.data.thumbsFilePath);
+        //   } else {
+        //     alert("Failed to make the thumbnails");
+        //   }
+        // });
       } else {
         alert("failed to save the video in server");
       }
